@@ -1,14 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
+import { Freshchat, FreshchatConfig } from 'react-native-freshchat-sdk';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class FreshchatTest extends React.Component {
+  _chat(){
+    alert("Hi");
+  }
+  render(){
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.btn} onPress={()=>this._chat()}>
+          <Text style={{color:"white",textAlign:"center"}}>Chat</Text>
+        </TouchableOpacity>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
+  
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +27,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  btn:{
+    backgroundColor:"blue",
+    color:"white",
+    width:100,
+    height:40,
+    justifyContent:"center"
+  }
 });
